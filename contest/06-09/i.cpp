@@ -44,7 +44,7 @@ void build(int u, int a, int c){
   big[u][0] = c;
   for(int i = 1; i <= l; i++){
     up[u][i] = up[up[u][i-1]][i-1];
-    big[u][i] = max(big[u][i-1], big[big[u][i-1]][i-1]);
+    big[u][i] = max(big[u][i-1], big[up[u][i-1]][i-1]);
   }
   for(auto [v, c]: adjMST[u]){
     if(v != a) build(v, u, c);
